@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
-    xmlns:aop="http://www.springframework.org/schema/aop"  
-    xsi:schemaLocation="http://www.springframework.org/schema/beans  
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
-    http://www.springframework.org/schema/aop   
-    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">  
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+  <aop:aspectj-autoproxy />
   
   <bean id="triangle" class="org.panwar.springAop.model.Triangle">
   	<property name="name" value="Triangle name "></property>
@@ -17,5 +17,7 @@
  
   <bean id="shapeService" class="org.panwar.springAop.service.ShapeService" autowire="byName">
   </bean>
+  
+  <bean id="loggingAspect" class="org.panwar.springAop.aspect.LoggingAspect" />
   
  </beans>
