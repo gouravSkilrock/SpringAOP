@@ -18,6 +18,17 @@
   <bean id="shapeService" class="org.panwar.springAop.service.ShapeService" autowire="byName">
   </bean>
   
+   <bean id="shapeServiceXml" class="org.panwar.springAop.service.ShapeService" autowire="byName">
+  </bean>
+  
   <bean id="loggingAspect" class="org.panwar.springAop.aspect.LoggingAspect" />
+  <bean id="loggingAspectAopXml" class="org.panwar.springAop.aspect.LoggingAspectUsingAopXmlConfiguration" />
+  
+  <aop:config>
+	  <aop:aspect id="loggingAspectAopXml" ref="loggingAspectAopXml" >
+	  <aop:pointcut expression="execution(* triangleArguemntMethod(..))" id="getArgs"/>
+	  <aop:around pointcut-ref="getArgs" method="myAdviceCalledFromAopXml" />
+	  </aop:aspect>
+  </aop:config>
   
  </beans>
